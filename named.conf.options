@@ -1,0 +1,25 @@
+options {
+    directory "/var/cache/bind";
+    
+    // Escuchar en todas las interfaces
+    listen-on { any; };
+    listen-on-v6 { any; };
+    
+    // Permitir consultas de la red local
+    allow-query { localhost; 10.20.30.0/24; };
+    
+    // Forwarders para consultas externas
+    forwarders {
+        8.8.8.8;
+        8.8.8.4;
+    };
+    
+    // Habilitar recursión para nuestra red
+    recursion yes;
+    allow-recursion { localhost; 10.20.30.0/24; };
+    
+    dnssec-validation auto;
+    
+    auth-nxdomain no;    # conform to RFC1035
+    listen-on-v6 { any; };
+};
