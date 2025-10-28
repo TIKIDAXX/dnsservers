@@ -1,0 +1,8 @@
+network:
+  version: 2
+  ethernet:
+    ens33:  # o el nombre de tu interfaz
+      addresses: [10.20.30.3/24]
+      gateway4: 10.20.30.1
+      nameservers:
+        addresses: [8.8.8.8, 8.8.8.4]
