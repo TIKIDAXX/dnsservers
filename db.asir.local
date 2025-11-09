@@ -1,0 +1,20 @@
+;
+; BIND data file for asir.local
+;
+$TTL    604800
+@       IN      SOA     dns1.asir.local. administrador.asir.local. (
+                              2         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+
+;
+asir.local.     IN      NS      dns1.asir.local.
+asir.local.     IN      NS      dns2.asir.local.
+dns1.asir.local.        IN      A       10.20.30.3
+dns2.asir.local.        IN      A       10.20.30.4
+proxy.asir.local.       IN      A       10.20.30.5
+mail.asir.local.        IN      A       10.20.30.100
+asir.local.     IN      MX      10      mail.asir.local.
+www.asir.local. IN      CNAME   proxy.asir.local
