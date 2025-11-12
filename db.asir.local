@@ -3,7 +3,7 @@
 ;
 $TTL    604800
 @       IN      SOA     dns1.asir.local. administrador.asir.local. (
-                              2         ; Serial
+                              3         ; Serial (INCREMENTADO)
                          604800         ; Refresh
                           86400         ; Retry
                         2419200         ; Expire
@@ -17,4 +17,4 @@ dns2.asir.local.        IN      A       10.20.30.4
 proxy.asir.local.       IN      A       10.20.30.5
 mail.asir.local.        IN      A       10.20.30.100
 asir.local.     IN      MX      10      mail.asir.local.
-www.asir.local. IN      CNAME   proxy.asir.local
+www.asir.local. IN      CNAME   proxy.asir.local.
