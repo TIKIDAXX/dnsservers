@@ -1,15 +1,20 @@
+// Do any local configuration here
+//
+
+// Consider adding the 1918 zones here, if they are not used in your
+// organization
+include "/etc/bind/zones.rfc1918";
+
 zone "asir.local" {
-    type master;
-    file "/etc/bind/db.asir.local";
-    allow-transfer { 10.20.30.4; };
-    notify yes;
+    type slave;
+    masters { 10.20.30.3; };
     allow-query { any; };
+    file "/var/cache/bind/db.asir.local.slave";
 };
 
 zone "30.20.10.in-addr.arpa" {
-    type master;
-    file "/etc/bind/db.asir.local.reverse";
-    allow-transfer { 10.20.30.4; };
-    notify yes;
+    type slave;
+    masters { 10.20.30.3; };
     allow-query { any; };
+    file "/var/cache/bind/db.asir.local.reverse.slave";
 };
