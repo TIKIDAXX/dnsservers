@@ -1,0 +1,15 @@
+zone "asir.local" {
+    type master;
+    file "/etc/bind/db.asir.local";
+    allow-transfer { 10.20.30.4; };
+    notify yes;
+    allow-query { any; };
+};
+
+zone "30.20.10.in-addr.arpa" {
+    type master;
+    file "/etc/bind/db.asir.local.reverse";
+    allow-transfer { 10.20.30.4; };
+    notify yes;
+    allow-query { any; };
+};
