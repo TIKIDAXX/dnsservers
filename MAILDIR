@@ -1,0 +1,23 @@
+# Crear Maildir para TODOS los usuarios
+sudo bash -c '
+for user in directiva coordinador profesor alumno1 alumno2; do
+    echo "Creando Maildir para $user"
+    
+    # Crear directorios si no existen
+    mkdir -p /home/$user/Maildir
+    mkdir -p /home/$user/Maildir/{cur,new,tmp}
+    
+    # Establecer permisos correctos
+    chown -R $user:$user /home/$user/Maildir
+    chmod -R 700 /home/$user/Maildir
+    
+    # Crear archivo .forward para redirección
+    echo "/home/$user/Maildir/" > /home/$user/.forward
+    chown $user:$user /home/$user/.forward
+    
+    echo "Maildir creado para $user"
+done
+'
+
+# Verificar creación
+ls -la /home/*/Maildir/
